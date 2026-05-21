@@ -12,7 +12,7 @@ pinned: false
 ## Proyecto Final: Análisis de los Expedientes Judiciales Desclasificados del Caso Epstein
 
 > **Programación para Ciencia de Datos**  
-> **Autor:** Lic. Ing. Jesús Olvera  
+> **Autor:** Jesús Olvera  
 
 ---
 
