@@ -605,17 +605,20 @@ def server(input, output, session):
     @reactive.calc
     def extraction_results():
         engine = pdf_engine()
+        
+        # Si no hay PDF, usar engine en modo CSV-only (lee los datasets precalculados directamente)
         if not engine:
-            return None
+            engine = PDFExtractorEngine(None)
         
         start = 1
-        end = engine.num_pages
+        # Si el engine no tiene PDF cargado, usar el total conocido del corpus (5,028 páginas)
+        end = engine.num_pages if engine.num_pages > 0 else 5028
         clean = True
         lang = "en"
             
         text, metrics = engine.process_document(start, end, clean=clean, language=lang)
         
-        orig_name = pdf_files[0] if pdf_files else "documento.pdf"
+        orig_name = pdf_files[0] if pdf_files and not pdf_files[0].startswith("Ningún") else "Epstein_documents.pdf"
         filename = f"forensic_{orig_name.replace('.pdf', '')}.txt"
         meta = engine.extract_metadata()
         
@@ -624,8 +627,9 @@ def server(input, output, session):
             "metrics": metrics,
             "filename": filename,
             "metadata": meta,
-            "pages_processed": (end - start + 1)
+            "pages_processed": end
         }
+
 
     # Descargar TXT limpio
     @render.download(filename=lambda: extraction_results()["filename"] if extraction_results() else "forensic.txt")
