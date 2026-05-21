@@ -1,10 +1,10 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 WORKDIR /code
 
-# Instalar dependencias del sistema necesarias
+# Instalar dependencias del sistema necesarias a nivel de runtime (como libgomp1 para scikit-learn)
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar requerimientos y preinstalar dependencias en la raíz del contenedor
@@ -18,5 +18,5 @@ COPY . .
 # Se usa comillas debido al espacio en el nombre de la carpeta
 WORKDIR "/code/04 Aplicacion Shiny"
 
-# Exponer el puerto por defecto de Hugging Face Spaces (7860) e iniciar la app
-CMD ["shiny", "run", "app.py", "--host", "0.0.0.0", "--port", "7860"]
+# Exponer el puerto por defecto de Hugging Face Spaces (7860) e iniciar la app robustamente vía python -m
+CMD ["python", "-m", "shiny", "run", "app.py", "--host", "0.0.0.0", "--port", "7860"]
