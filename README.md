@@ -12,7 +12,6 @@ pinned: false
 ## Proyecto Final: Análisis de los Expedientes Judiciales Desclasificados del Caso Epstein
 
 > **Programación para Ciencia de Datos**  
-> **Centro de Cómputo y Sistemas Complejos (CCSC)**  
 > **Autor:** Lic. Ing. Jesús Olvera  
 
 ---
