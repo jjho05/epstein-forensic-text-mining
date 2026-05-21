@@ -1,3 +1,13 @@
+---
+title: Epstein Forensic Text Mining
+emoji: ⚖️
+colorFrom: purple
+colorTo: indigo
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # Minería de Texto Forense y Análisis de Co-ocurrencia ⚖️🕵️‍♂️
 
 > **Plataforma de Inteligencia Forense y NLP de Grado Industrial para Auditar los Expedientes Judiciales Desclasificados del Caso Epstein.**
@@ -91,7 +101,7 @@ A partir del análisis de las **5,028 páginas** y **1,323,138 palabras** del ex
 ### 🤐 Tácticas de Evasividad Verbal Detectadas
 Se detectaron un total de **2,338 instancias** de tácticas evasivas bajo juramento:
 
-| Táctica de Evasividad Detectada | Total de Instancias | Razón e Impacto Forense |
+| Táctica de Evasividad Verbal Detectadas | Total de Instancias | Razón e Impacto Forense |
 | :--- | :---: | :--- |
 | **Objection** (Objeciones de Abogados) | 1,915 | Obstrucción sistemática de líneas de cuestionamiento clave. |
 | **Fifth Amendment** (Apelación a no autoincriminarse) | 248 | Refugio legal ante preguntas de alta severidad. |
@@ -118,7 +128,7 @@ El cruzamiento semántico identificó la densidad de menciones asociadas a tópi
 ```bash
 git clone <URL_DE_TU_REPOSITORIO_GITHUB>
 cd epstein-forensic-text-mining
-pip install -r "04 Aplicacion Shiny/requirements.txt"
+pip install -r requirements.txt
 ```
 
 ### 2. Configurar variables de entorno:
@@ -140,6 +150,6 @@ shiny run --reload app.py
 
 ## 🐳 Despliegue en Hugging Face Spaces (Docker)
 
-El proyecto incluye un `Dockerfile` optimizado en la carpeta de la app (`04 Aplicacion Shiny/`). Al subir los archivos de este subdirectorio a tu Space de Hugging Face configurado con el SDK **Docker**, la plataforma compilará y desplegará la app automáticamente.
+El proyecto incluye un `Dockerfile` optimizado en la carpeta raíz. Al subir los archivos de este directorio a tu Space de Hugging Face configurado con el SDK **Docker**, la plataforma compilará y desplegará la app automáticamente.
 
 > **🔒 Seguridad**: Recuerda agregar tus claves (`OPENROUTER_API_KEY`, `GROQ_API_KEY`, etc.) de forma segura dentro de la sección **Variables de Entorno (Secrets)** en la configuración de tu Space en Hugging Face. Nunca subas el archivo `.env` al repositorio público.
