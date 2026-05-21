@@ -642,14 +642,14 @@ app_ui = ui.page_sidebar(
                                 border-collapse: collapse !important;
                                 margin: 14px 0 !important;
                                 font-size: 0.84rem !important;
-                                background: #120e1d !important;
-                                color: #e5e5e5 !important;
+                                background-color: #0e0a17 !important;
+                                color: #ebdff5 !important;
                                 border: 1px solid rgba(255, 255, 255, 0.15) !important;
                                 border-radius: 6px !important;
                                 overflow: hidden !important;
                             }
                             th {
-                                background-color: rgba(255, 255, 255, 0.12) !important;
+                                background-color: #1a152e !important;
                                 color: #ffffff !important;
                                 padding: 10px 14px !important;
                                 text-align: left !important;
@@ -660,26 +660,27 @@ app_ui = ui.page_sidebar(
                                 text-transform: uppercase !important;
                             }
                             td {
-                                background-color: rgba(20, 20, 20, 0.55) !important;
-                                color: #e5e5e5 !important;
+                                background-color: #120e20 !important;
+                                color: #ebdff5 !important;
                                 padding: 8px 14px !important;
                                 border: 1px solid rgba(255, 255, 255, 0.08) !important;
                                 vertical-align: top !important;
                             }
                             tr:nth-child(even) td {
-                                background-color: rgba(255, 255, 255, 0.02) !important;
+                                background-color: #0e0a17 !important;
                             }
                             tr:hover td {
-                                background-color: rgba(255, 255, 255, 0.06) !important;
+                                background-color: #1a152e !important;
                             }
                             
                             /* Bloques de código (pre, code) dentro del Shadow DOM */
                             pre, code, .code-block, .markdown-code-block {
-                                background-color: #120e1d !important;
+                                background-color: #0e0a17 !important;
                                 color: #ebdff5 !important;
                                 border: 1px solid rgba(255, 255, 255, 0.12) !important;
                                 padding: 12px !important;
                                 border-radius: 8px !important;
+                                display: block !important;
                             }
                         `;
                         shadow.appendChild(style);
